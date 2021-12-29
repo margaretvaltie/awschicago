@@ -1080,11 +1080,11 @@
 	}
 
 	a {
-		text-decoration: underline;
+		text-decoration: none;
 	}
 
 		a:hover {
-			text-decoration: none;
+			text-decoration: underline;
 		}
 
 	section > :last-child,
@@ -1271,7 +1271,6 @@
 				background: #ffffff ;
 				border-bottom: solid 1px #E1F3F8;
 				padding: 45px 0 45px 0;
-				text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.75);
 			}
 
 			#content-wrapper {
