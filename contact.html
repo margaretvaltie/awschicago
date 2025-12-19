@@ -11,28 +11,25 @@
 	</head>
 	<body>
 		<div id="page-wrapper">
-			<!-- Header -->
-				<div id="header-wrapper">
-					<header id="header" class="container">
-						<div class="row">
-							<div class="12u">
-
-								<!-- Logo -->
-									<h1><a href="index.html" id="logo">AWS Chicago</a></h1>
-
-								<!-- Nav -->
-									<nav id="nav">
-										<a href="https://www.meetup.com/aws-chicago/" target="_blank">Events</a>
-										<a href="faqs.html">FAQs</a>
-										<a href="https://www.midwestcommunityday.com/" target="_blank" class="special">Community Day</a>
-										<a href="codeofconduct.html">Code of Conduct</a>
-										<a href="contact.html">Contact Us</a>
-									</nav>
-
-							</div>
-						</div>
-					</header>
+			<!-- Modern Navigation -->
+			<nav class="modern-nav">
+				<div class="nav-container">
+					<a href="index.html" class="nav-logo">AWS Chicago</a>
+					<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					<ul class="nav-links" role="menubar">
+						<li role="none"><a href="https://www.meetup.com/aws-chicago/" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Events (opens in new tab)">Events</a></li>
+						<li role="none"><a href="faqs.html" role="menuitem">FAQs</a></li>
+						<li role="none"><a href="https://www.midwestcommunityday.com/" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Community Day (opens in new tab)">Community Day</a></li>
+						<li role="none"><a href="codeofconduct.html" role="menuitem">Code of Conduct</a></li>
+						<li role="none"><a href="contact.html" role="menuitem" class="active" aria-current="page">Contact Us</a></li>
+						<li role="none"><a href="https://join.slack.com/t/awschicago/shared_invite/zt-25vrvuq9s-BI2tJZM3g2uxj0mqpH3JsA" target="_blank" rel="noopener noreferrer" class="nav-cta" role="menuitem" aria-label="Join our Slack (opens in new tab)">Join Slack</a></li>
+					</ul>
 				</div>
+			</nav>
 							<!-- Content -->
 				<div id="content-wrapper">
 					<div id="content">
@@ -190,5 +187,29 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			
+			<!-- Modern Navigation Toggle -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					const navToggle = document.querySelector('.nav-toggle');
+					const navLinks = document.querySelector('.nav-links');
+					
+					if (navToggle && navLinks) {
+						navToggle.addEventListener('click', function() {
+							navLinks.classList.toggle('active');
+							const isExpanded = navLinks.classList.contains('active');
+							navToggle.setAttribute('aria-expanded', isExpanded);
+						});
+						
+						// Close mobile menu when clicking on a link
+						navLinks.addEventListener('click', function(e) {
+							if (e.target.tagName === 'A') {
+								navLinks.classList.remove('active');
+								navToggle.setAttribute('aria-expanded', 'false');
+							}
+						});
+					}
+				});
+			</script>
 </body>
 </html>
