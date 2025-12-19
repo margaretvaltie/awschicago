@@ -1,12 +1,13 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>Contact - AWS Chicago</title>
+		<title>Contact - AWS Chicago User Group</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Contact the AWS Chicago user group organizers. Get in touch about speaking, sponsoring, or hosting events." />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+		<link rel='shortcut icon' type='image/x-icon' href='assets/images/favicon.ico' />
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -52,31 +53,30 @@
 										</section>
 								</div>
 							</div>
-									<form 
-										action="https://formspree.io/f/mqkgjreo" method="post" 
+									<form action="https://formspree.io/f/mqkgjreo" method="post" novalidate>
 										<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-								<div class="field">
-									<label for="name">Full Name <span class="asterisk">*</span></label>
-									<input type="text" name="name" id="name" />
-							</div>
-								<div class="field">
-									<label for="mce-EMAIL">Email  <span class="asterisk">*</span></label>
-									<input type="email" name="email" id="email" />
-							</div>
-								<div class="field">
-									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="2"></textarea>
-							</div>
-								<div class="6u$ 12u$(small)">
-									<input type="checkbox" id="demo-human" name="demo-human" unchecked>
-									<label for="demo-human">Check if you're not a robot.</label>
-								</div>	
-								<p>
-								<ul class="actions">
-									<li><input class="button-big" type="submit" value="Send Message" /></li>
-									<li><input type="hidden" name="_next" value="/thanks.html" alt="Submit" /></li>
-								</ul>
-							</form>
+										<div class="field">
+											<label for="name">Full Name <span class="asterisk">*</span></label>
+											<input type="text" name="name" id="name" required aria-required="true" />
+										</div>
+										<div class="field">
+											<label for="email">Email <span class="asterisk">*</span></label>
+											<input type="email" name="email" id="email" required aria-required="true" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4" aria-describedby="message-help"></textarea>
+											<small id="message-help">Tell us how you'd like to get involved or ask any questions.</small>
+										</div>
+										<div class="field">
+											<input type="checkbox" id="demo-human" name="demo-human" required aria-required="true">
+											<label for="demo-human">I'm not a robot <span class="asterisk">*</span></label>
+										</div>
+										<ul class="actions">
+											<li><input class="button-big" type="submit" value="Send Message" /></li>
+										</ul>
+										<input type="hidden" name="_next" value="thanks.html" />
+									</form>
 						</div>
 					</div>
 							<div class="row ">
@@ -108,25 +108,23 @@
 								<div class="-1u 12u(mobile)">
 									<!-- Feature #2 -->
 								</div>
-								<div class="-1u 12u(mobile)">
-									<!-- Feature #3 -->
+								<div class="2u 12u(mobile)">
+									<!-- LinkedIn -->
 										<section>
-											<a href="https://www.linkedin.com/groups/6705840" target="_blank"class="feature-image"><img src="assets/images/icon-linkedin.png" alt="LinkedIn Group" /></a>
+											<a href="https://www.linkedin.com/groups/6705840" target="_blank" rel="noopener noreferrer" class="feature-image" aria-label="Join our LinkedIn Group (opens in new tab)"><img src="assets/images/icon-linkedin.png" alt="LinkedIn Group icon" /></a>
 										</section>
 								</div>
-								<div class="-1u 12u(mobile)">
-									<!-- Feature #4 -->
+								<div class="2u 12u(mobile)">
+									<!-- Slack -->
 										<section>
-
-											<a href="https://slack.chicagoaws.com/"target="_blank" class="feature-image"><img src="assets/images/icon-slack.png" alt="slack" /></a>
+											<a href="https://slack.chicagoaws.com/" target="_blank" rel="noopener noreferrer" class="feature-image" aria-label="Join our Slack workspace (opens in new tab)"><img src="assets/images/icon-slack.png" alt="Slack workspace icon" /></a>
 										</section>
 								</div>
-								<div class="-1u 12u(mobile)">
-									<!-- Feature #5 -->
+								<div class="2u 12u(mobile)">
+									<!-- YouTube -->
 										<section>
-											<a href="https://www.youtube.com/channel/UCXyvg7y0BnqrfNb_k9sgD2A"target="_blank" class="feature-image"><img src="assets/images/icon-youtube.png" alt="YouTube" /></a>
+											<a href="https://www.youtube.com/channel/UCXyvg7y0BnqrfNb_k9sgD2A" target="_blank" rel="noopener noreferrer" class="feature-image" aria-label="Watch our YouTube videos (opens in new tab)"><img src="assets/images/icon-youtube.png" alt="YouTube channel icon" /></a>
 										</section>
-
 								</div>
 							</div>
 						</div>

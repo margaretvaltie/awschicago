@@ -1,5 +1,71 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
 
+/* Accessibility - Skip Link */
+.skip-link {
+	position: absolute;
+	top: -40px;
+	left: 6px;
+	background: #000;
+	color: #fff;
+	padding: 8px 12px;
+	text-decoration: none;
+	z-index: 10000;
+	border-radius: 0 0 4px 4px;
+	font-weight: 400;
+	transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+	top: 0;
+	outline: 2px solid #E4002B;
+	outline-offset: 2px;
+}
+
+/* Improved focus styles for better accessibility */
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+	outline: 2px solid #E4002B;
+	outline-offset: 2px;
+}
+
+/* Better form styling */
+.field {
+	margin-bottom: 1.5em;
+}
+
+.field label {
+	display: block;
+	margin-bottom: 0.5em;
+	font-weight: 400;
+	color: #333;
+}
+
+.field input, .field textarea {
+	width: 100%;
+	padding: 0.75em;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-family: inherit;
+	font-size: 1em;
+	transition: border-color 0.3s ease;
+}
+
+.field input:focus, .field textarea:focus {
+	border-color: #E4002B;
+}
+
+.field small {
+	display: block;
+	margin-top: 0.25em;
+	color: #666;
+	font-size: 0.9em;
+}
+
+.asterisk {
+	color: #E4002B;
+	font-weight: bold;
+}
+
+/* Reset */
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
@@ -1168,8 +1234,10 @@
 	}
 
 		.feature-image img {
-		display: inline-block;
+			display: block;
 			width: 100%;
+			height: auto;
+			max-width: 100%;
 		}
 
 	.bordered-feature-image {
@@ -1179,34 +1247,51 @@
 		box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
 		margin: 0 0 1.5em 0;
 		outline: 0;
+		transition: box-shadow 0.3s ease;
 	}
+
+		.bordered-feature-image:hover {
+			box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.2);
+		}
 
 		.bordered-feature-image img {
 			display: block;
 			width: 100%;
+			height: auto;
+			max-width: 100%;
+			object-fit: cover;
+			aspect-ratio: 4/3;
 		}
 
 	.button-big {
 		background-color: #E4002B;
 		display: inline-block;
-		background-color: #E4002B;
 		color: #ffffff;
 		text-decoration: none;
 		font-size: 1.75em;
-		font-weight: 300;
-		padding: 15px 45px 15px 45px;
+		font-weight: 400;
+		padding: 15px 45px;
 		outline: 0;
 		border-radius: 10px;
-		box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
-		text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
+		border: none;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		text-shadow: none;
+		min-height: 44px; /* Accessibility - minimum touch target */
+		min-width: 44px;
 	}
 
-		.button-big:hover {
-			background-color: #981b1e;
-			display: inline-block;
-			background-color: #ffffff;
-			color: #E4002B;
-			box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
+		.button-big:hover, .button-big:focus {
+			background-color: #c8001f;
+			transform: translateY(-2px);
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+			text-decoration: none;
+		}
+
+		.button-big:active {
+			transform: translateY(0);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 		}
 
 /* Content */
@@ -1323,7 +1408,7 @@
 		/* Banner */
 
 			#banner {
-				background: url(/imgages/pano.jpg) no-repeat center fixed; 
+				background: url(../images/pano.jpg) no-repeat center fixed; 
 				border-top: solid 1px #E1F3F8;
 				padding: 35px 0 35px 0;
 				min-width:100px;
@@ -1502,6 +1587,22 @@
 			}
 
 	}
+
+/* Responsive Typography */
+@media screen and (max-width: 480px) {
+	body, input, textarea, select {
+		font-size: 14px;
+	}
+	
+	.button-big {
+		font-size: 1.25em;
+		padding: 12px 24px;
+	}
+	
+	#banner p {
+		font-size: 1.1em;
+	}
+}
 
 /* Mobile */
 

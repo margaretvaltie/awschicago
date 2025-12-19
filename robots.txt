@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://awschicago.com/sitemap.xml
+
+# Disallow crawling of any admin or private directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.htaccess
+Disallow: /README.md
