@@ -243,6 +243,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 		box-shadow: var(--shadow);
 		display: none;
 		gap: 0;
+		z-index: 1000;
 	}
 
 	.nav-links.active {
@@ -258,6 +259,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 		padding: 1rem;
 		border-bottom: 1px solid var(--border-gray);
 		text-align: center;
+		font-size: 1rem;
 	}
 	
 	.nav-links a:last-child {
@@ -266,6 +268,181 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 	
 	.nav-cta {
 		margin-top: 0.5rem;
+		background: var(--primary-red) !important;
+		color: var(--white) !important;
+		border-radius: 6px;
+		border-bottom: none !important;
+	}
+	
+	/* Hide legacy mobile navigation when modern nav is active */
+	#titleBar, #navPanel {
+		display: none !important;
+	}
+}
+
+/* ========================================
+   MODERN HERO BANNER
+======================================== */
+#hero-banner {
+	background: linear-gradient(135deg, rgba(228, 0, 43, 0.7) 0%, rgba(168, 0, 31, 0.8) 100%);
+	color: var(--white);
+	padding: 2.5rem 2rem;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+#hero-banner::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url(../images/pano.jpg) no-repeat center center;
+	background-size: cover;
+	opacity: 0.4;
+	z-index: 1;
+}
+
+.hero-content {
+	position: relative;
+	z-index: 2;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.hero-title {
+	font-family: 'Big Shoulders Display', sans-serif;
+	font-size: 2.75rem;
+	font-weight: 700;
+	margin-bottom: 0.75rem;
+	line-height: 1.1;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+	font-size: 1.125rem;
+	font-weight: 400;
+	margin-bottom: 1.75rem;
+	opacity: 0.95;
+	line-height: 1.4;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-actions {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.hero-cta {
+	display: inline-block;
+	padding: 1rem 2rem;
+	border-radius: 6px;
+	text-decoration: none;
+	font-family: 'Big Shoulders Display', sans-serif;
+	font-size: 1.125rem;
+	font-weight: 700;
+	transition: all 0.3s ease;
+	min-height: 44px;
+	min-width: 120px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-cta.primary {
+	background: var(--white);
+	color: var(--primary-red);
+}
+
+.hero-cta.primary:hover {
+	background: #f5f5f5;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+}
+
+.hero-cta.secondary {
+	background: transparent;
+	color: var(--white);
+	border: 2px solid var(--white);
+}
+
+.hero-cta.secondary:hover {
+	background: var(--white);
+	color: var(--primary-red);
+	transform: translateY(-2px);
+	text-decoration: none;
+}
+
+/* Responsive hero banner */
+@media (max-width: 768px) {
+	#hero-banner {
+		padding: 2rem 1rem;
+		margin-top: 0;
+	}
+	
+	.hero-title {
+		font-size: 2.25rem;
+		margin-bottom: 0.75rem;
+	}
+	
+	.hero-subtitle {
+		font-size: 1rem;
+		margin-bottom: 1.5rem;
+		padding: 0 1rem;
+	}
+	
+	.hero-actions {
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
+	}
+	
+	.hero-cta {
+		width: 100%;
+		max-width: 280px;
+		padding: 0.875rem 1.5rem;
+		font-size: 1rem;
+	}
+	
+	/* Ensure modern nav takes precedence on mobile */
+	.modern-nav {
+		position: relative;
+		z-index: 10001;
+	}
+}
+
+@media (max-width: 480px) {
+	#hero-banner {
+		padding: 1.5rem 1rem;
+	}
+	
+	.hero-title {
+		font-size: 1.875rem;
+		margin-bottom: 0.5rem;
+	}
+	
+	.hero-subtitle {
+		font-size: 0.95rem;
+		margin-bottom: 1.25rem;
+		padding: 0 0.5rem;
+	}
+	
+	.hero-actions {
+		gap: 0.5rem;
+	}
+	
+	.hero-cta {
+		max-width: 260px;
+		padding: 0.75rem 1.25rem;
+		font-size: 0.95rem;
 	}
 }
 
@@ -302,9 +479,12 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 
 .card-image {
 	width: 100%;
-	height: 200px;
+	height: 160px;
 	object-fit: cover;
+	object-position: center;
 	transition: transform 0.3s ease;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
 }
 
 .feature-card:hover .card-image {
@@ -312,7 +492,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 }
 
 .card-content {
-	padding: 1.5rem;
+	padding: 1.25rem;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -1736,8 +1916,8 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 							color: var(--secondary-blue);
 						}
 
-		/* Banner */
-
+		/* Legacy Banner - Disabled */
+		/*
 			#banner {
 				background: url(../images/pano.jpg) no-repeat center fixed; 
 				border-top: solid 1px #E1F3F8;
@@ -1746,6 +1926,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 				min-height:50px;
 				color: #fff;
 			}
+		*/
 
 				#banner .bordered-feature-image {
 					margin-bottom: 0;
@@ -1951,6 +2132,11 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 
 	@media screen and (max-width: 736px) {
 
+		/* Hide legacy mobile navigation completely when modern nav is present */
+		#navPanel, #titleBar {
+			display: none !important;
+		}
+
 		/* Basic */
 
 			html, body {
@@ -2010,6 +2196,8 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 				display: none;
 			}
 
+		/* Legacy Mobile Banner - Disabled */
+		/*
 			#banner {
 				position: relative;
 				color: var(--secondary-blue);
@@ -2017,6 +2205,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 				padding: 30px 30px 15px 30px;
 				margin-top: 44px;
 			}
+		*/
 
 				#banner .bordered-feature-image {
 					display: none;

@@ -36,13 +36,13 @@
 				);
 			});
 
-		// Off-Canvas Navigation.
-
+		// Off-Canvas Navigation - Disabled (using modern navigation instead)
+		/*
 			// Title Bar.
 				$(
 					'<div id="titleBar">' +
 						'<a href="#navPanel" class="toggle"></a>' +
-						'<span class="title">' + $('#logo').html() + '</span>' +
+						'<span class="title">AWS Chicago</span>' +
 					'</div>'
 				)
 					.appendTo($body);
@@ -71,6 +71,7 @@
 				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
 					$('#titleBar, #navPanel, #page-wrapper')
 						.css('transition', 'none');
+		*/
 
 	});
 
