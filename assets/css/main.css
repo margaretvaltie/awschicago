@@ -1735,8 +1735,9 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 
 	.feature-image {
 		display: block;
-		margin: 0 0 2em 0;
+		margin: 0 auto;
 		outline: 0;
+		max-width: 120px;
 	}
 
 		.feature-image img {
@@ -1745,6 +1746,19 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 			height: auto;
 			max-width: 100%;
 		}
+
+	/* Responsive sizing for feature icons */
+	@media screen and (min-width: 481px) and (max-width: 1024px) {
+		.feature-image {
+			max-width: 100px;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.feature-image {
+			max-width: 80px;
+		}
+	}
 
 	.bordered-feature-image {
 		display: block;
